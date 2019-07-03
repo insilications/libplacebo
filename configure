@@ -1,0 +1,3 @@
+-Dvulkan=enabled
+-Dglslang=enabled
+-Dshaderc=disabled

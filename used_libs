@@ -1,0 +1,9 @@
+libSPIRV.so
+libc.so.6
+libgcc_s.so.1
+libglslang.so
+liblcms2.so.2
+libm.so.6
+libpthread.so.0
+libstdc++.so.6
+libvulkan.so.1
