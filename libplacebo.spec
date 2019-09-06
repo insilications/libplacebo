@@ -4,7 +4,7 @@
 #
 Name     : libplacebo
 Version  : 1.18.0
-Release  : 3
+Release  : 4
 URL      : https://github.com/haasn/libplacebo/archive/v1.18.0.tar.gz
 Source0  : https://github.com/haasn/libplacebo/archive/v1.18.0.tar.gz
 Summary  : No detailed summary available
@@ -22,10 +22,9 @@ BuildRequires : glslang-staticdev
 BuildRequires : lcms2-dev
 
 %description
-bstr ("byte string") is an abstraction for working with strings in a
-start/length representation rather than scanning for \0 terminators. This is
-important for both handling arbitrary binary data as well as being more
-efficient for large string operations.
+TA ("Tree Allocator") is a wrapper around malloc() and related functions,
+adding features like automatically freeing sub-trees of memory allocations if
+a parent allocation is freed.
 
 %package dev
 Summary: dev components for the libplacebo package.
@@ -62,17 +61,17 @@ license components for the libplacebo package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1562177837
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1567785898
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=44 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=44 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=44 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=44 "
-CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain -Dvulkan=enabled \
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dvulkan=enabled \
 -Dglslang=enabled \
 -Dshaderc=disabled  builddir
 ninja -v -C builddir
