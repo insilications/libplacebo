@@ -4,7 +4,7 @@
 #
 Name     : libplacebo
 Version  : 1.21.0
-Release  : 7
+Release  : 8
 URL      : https://github.com/haasn/libplacebo/archive/v1.21.0.tar.gz
 Source0  : https://github.com/haasn/libplacebo/archive/v1.21.0.tar.gz
 Summary  : No detailed summary available
@@ -20,6 +20,7 @@ BuildRequires : buildreq-meson
 BuildRequires : glslang-dev
 BuildRequires : glslang-staticdev
 BuildRequires : lcms2-dev
+Patch1: backport-vulkan.patch
 
 %description
 TA ("Tree Allocator") is a wrapper around malloc() and related functions,
@@ -57,26 +58,34 @@ license components for the libplacebo package.
 %prep
 %setup -q -n libplacebo-1.21.0
 cd %{_builddir}/libplacebo-1.21.0
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1573606574
+export SOURCE_DATE_EPOCH=1589206610
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dvulkan=enabled \
 -Dglslang=enabled \
 -Dshaderc=disabled \
 -Dcpp_args=-I/usr/include/glslang  builddir
 ninja -v -C builddir
+
+%check
+export LANG=C.UTF-8
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
+meson test -C builddir
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/libplacebo
