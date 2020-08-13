@@ -1,2 +1,10 @@
 # This file contains additional pkgconfig build requirements that did
 # not get picked up automatically. One name per line, no whitespace.
+vulkan
+lcms2
+SPIRV-Tools-shared
+SPIRV-Tools
+shaderc
+shaderc_combined
+shaderc_static
+epoxy

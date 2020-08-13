@@ -1,4 +1,1 @@
--Dvulkan=enabled
--Dglslang=enabled
--Dshaderc=disabled
--Dcpp_args=-I/usr/include/glslang
+-Dvulkan=enabled -Dglslang=enabled -Dshaderc=enabled -Ddefault_library=both -Db_lto=true -Dlcms=enabled -Dtests=true -Dcpp_args=-I/usr/include/glslang

@@ -1,9 +1,21 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
-SPIRV-Tools-dev
-SPIRV-Headers-dev
-glslang-dev
-glslang-staticdev
+# SPIRV-Tools-dev
+# SPIRV-Headers-dev
+# glslang-dev
+# glslang-staticdev
+asciidoctor
+findutils
 lcms2-dev
-Vulkan-Loader-dev
+lcms2-staticdev
+libepoxy-dev
+libepoxy-staticdev
+shaderc
+shaderc-dev
+shaderc-staticdev
 Vulkan-Headers-dev
+Vulkan-Loader-dev
+python3
+python3-dev
+Mako
+Mako-python3

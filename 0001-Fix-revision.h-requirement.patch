@@ -1,0 +1,44 @@
+From 15918c6b9d8e55800f8cf0995a596b564524bca8 Mon Sep 17 00:00:00 2001
+From: insilications <boboniboni@gmail.com>
+Date: Thu, 13 Aug 2020 08:37:52 -0300
+Subject: [PATCH] Fix revision.h requirement
+
+---
+ src/glsl/glslang.cc | 3 +--
+ src/meson.build     | 4 +---
+ 2 files changed, 2 insertions(+), 5 deletions(-)
+
+diff --git a/src/glsl/glslang.cc b/src/glsl/glslang.cc
+index c237541..fd33ca3 100644
+--- a/src/glsl/glslang.cc
++++ b/src/glsl/glslang.cc
+@@ -23,10 +23,9 @@ extern "C" {
+ }
+ 
+ #include <glslang/Include/ResourceLimits.h>
+-#include <glslang/Include/revision.h>
+ #include <glslang/Public/ShaderLang.h>
+ #include <SPIRV/GlslangToSpv.h>
+-
++#define GLSLANG_PATCH_LEVEL 4763
+ #include "glslang.h"
+ 
+ using namespace glslang;
+diff --git a/src/meson.build b/src/meson.build
+index 5a77cea..9aeb9b5 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -83,9 +83,7 @@ else
+ endif
+ 
+ if glslang_found
+-  glslang_ver = cxx.get_define('GLSLANG_PATCH_LEVEL',
+-      prefix: '#include <glslang/Include/revision.h>'
+-  ).to_int()
++  glslang_ver = 4763
+ 
+   if glslang_ver >= glslang_min_ver
+     # glslang must be linked against pthreads on platforms where pthreads is
+-- 
+2.27.0
+
