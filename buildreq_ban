@@ -1,6 +1,8 @@
 # This file contains build requirements that get picked up but are
 # undesirable. One entry per line, no whitespace.
-SPIRV-Tools-dev
-SPIRV-Headers-dev
+# shaderc
+# shaderc-dev
 glslang-dev
 glslang-staticdev
+SPIRV-Headers-dev
+SPIRV-Tools-dev
