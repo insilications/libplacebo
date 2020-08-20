@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : libplacebo
 Version  : 2.72.0.rc1
-Release  : 9
+Release  : 10
 URL      : file:///insilications/build/clearlinux/packages/libplacebo/libplacebo-v2.72.0-rc1.zip
 Source0  : file:///insilications/build/clearlinux/packages/libplacebo/libplacebo-v2.72.0-rc1.zip
 Summary  : No detailed summary available
@@ -84,7 +84,7 @@ unset http_proxy
 unset https_proxy
 unset no_proxy
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1597320820
+export SOURCE_DATE_EPOCH=1597925800
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -116,7 +116,7 @@ export CXXFLAGS="${CXXFLAGS_GENERATE}"
 export FFLAGS="${FFLAGS_GENERATE}"
 export FCFLAGS="${FCFLAGS_GENERATE}"
 export LDFLAGS="${LDFLAGS_GENERATE}"
-meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dvulkan=enabled -Dglslang=enabled -Dshaderc=enabled -Ddefault_library=both -Db_lto=true -Dlcms=enabled -Dtests=true -Dcpp_args=-I/usr/include/glslang  builddir
+meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dvulkan=enabled -Dopengl=enabled -Dglslang=disabled -Dshaderc=enabled -Ddefault_library=both -Db_lto=true -Dlcms=enabled -Dtests=true -Dcpp_args=-I/usr/include/glslang  builddir
 ninja -v -C builddir
 
 meson test -C builddir
@@ -126,7 +126,7 @@ export CXXFLAGS="${CXXFLAGS_USE}"
 export FFLAGS="${FFLAGS_USE}"
 export FCFLAGS="${FCFLAGS_USE}"
 export LDFLAGS="${LDFLAGS_USE}"
-meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dvulkan=enabled -Dglslang=enabled -Dshaderc=enabled -Ddefault_library=both -Db_lto=true -Dlcms=enabled -Dtests=true -Dcpp_args=-I/usr/include/glslang  builddir
+meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dvulkan=enabled -Dopengl=enabled -Dglslang=disabled -Dshaderc=enabled -Ddefault_library=both -Db_lto=true -Dlcms=enabled -Dtests=true -Dcpp_args=-I/usr/include/glslang  builddir
 ninja -v -C builddir
 
 %check
