@@ -1,1 +1,5 @@
-backport-vulkan.patch
+0001-spirv-glslang-fix-compatibility-with-glslang-8.13.37.patch
+0002-spirv-glslang-fix-build-on-8.13.3743.patch
+0003-glslang-explicitly-mark-parameterless-functions-as-v.patch
+0004-glslang-update-for-new-glslang-versioning-scheme.patch
+0005-glslang-force-semver-version-to-be-newer-than-any-ex.patch

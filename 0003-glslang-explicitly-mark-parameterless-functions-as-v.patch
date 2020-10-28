@@ -1,0 +1,58 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Niklas Haas <git@haasn.xyz>
+Date: Sat, 12 Sep 2020 11:38:45 +0200
+Subject: [PATCH] glslang: explicitly mark parameterless functions as void
+
+Something something, empty function lists get interpreted as "unknown
+signature" rather than "void signature". Dunno if this is still relevant
+for C++, but may as well get into the habit.
+---
+ src/glsl/glslang.cc | 6 +++---
+ src/glsl/glslang.h  | 6 +++---
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/src/glsl/glslang.cc b/src/glsl/glslang.cc
+index c237541..3b17a4e 100644
+--- a/src/glsl/glslang.cc
++++ b/src/glsl/glslang.cc
+@@ -34,12 +34,12 @@ using namespace glslang;
+ static pthread_mutex_t pl_glslang_mutex = PTHREAD_MUTEX_INITIALIZER;
+ static int pl_glslang_refcount;
+ 
+-int pl_glslang_version()
++int pl_glslang_version(void)
+ {
+     return GLSLANG_PATCH_LEVEL;
+ }
+ 
+-bool pl_glslang_init()
++bool pl_glslang_init(void)
+ {
+     bool ret = true;
+ 
+@@ -51,7 +51,7 @@ bool pl_glslang_init()
+     return ret;
+ }
+ 
+-void pl_glslang_uninit()
++void pl_glslang_uninit(void)
+ {
+     pthread_mutex_lock(&pl_glslang_mutex);
+     if (--pl_glslang_refcount == 0)
+diff --git a/src/glsl/glslang.h b/src/glsl/glslang.h
+index 3361198..c113150 100644
+--- a/src/glsl/glslang.h
++++ b/src/glsl/glslang.h
+@@ -24,9 +24,9 @@
+ extern "C" {
+ #endif
+ 
+-int pl_glslang_version();
+-bool pl_glslang_init();
+-void pl_glslang_uninit();
++int pl_glslang_version(void);
++bool pl_glslang_init(void);
++void pl_glslang_uninit(void);
+ 
+ struct pl_glslang_res {
+     // Compilation status

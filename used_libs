@@ -1,7 +1,8 @@
 libSPIRV.so
 libc.so.6
+libepoxy.so.0
 libgcc_s.so.1
-libglslang.so
+libglslang.so.11
 liblcms2.so.2
 libm.so.6
 libpthread.so.0
