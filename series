@@ -2,4 +2,4 @@
 0002-spirv-glslang-fix-build-on-8.13.3743.patch
 0003-glslang-explicitly-mark-parameterless-functions-as-v.patch
 0004-glslang-update-for-new-glslang-versioning-scheme.patch
-0005-glslang-force-semver-version-to-be-newer-than-any-ex.patch
+0005-glslang-refactor-version-checks-to-respect-semantic-.patch

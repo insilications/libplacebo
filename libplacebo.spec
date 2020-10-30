@@ -4,7 +4,7 @@
 #
 Name     : libplacebo
 Version  : 2.72.0
-Release  : 10
+Release  : 11
 URL      : https://github.com/haasn/libplacebo/archive/v2.72.0/libplacebo-2.72.0.tar.gz
 Source0  : https://github.com/haasn/libplacebo/archive/v2.72.0/libplacebo-2.72.0.tar.gz
 Summary  : No detailed summary available
@@ -27,7 +27,7 @@ Patch1: 0001-spirv-glslang-fix-compatibility-with-glslang-8.13.37.patch
 Patch2: 0002-spirv-glslang-fix-build-on-8.13.3743.patch
 Patch3: 0003-glslang-explicitly-mark-parameterless-functions-as-v.patch
 Patch4: 0004-glslang-update-for-new-glslang-versioning-scheme.patch
-Patch5: 0005-glslang-force-semver-version-to-be-newer-than-any-ex.patch
+Patch5: 0005-glslang-refactor-version-checks-to-respect-semantic-.patch
 
 %description
 TA ("Tree Allocator") is a wrapper around malloc() and related functions,
@@ -76,7 +76,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1603856562
+export SOURCE_DATE_EPOCH=1604025426
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
