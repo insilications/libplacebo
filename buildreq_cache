@@ -1,3 +1,7 @@
-2.72.2
+3.120.0
 libepoxy-dev
 pkgconfig(epoxy)
+pkgconfig(glfw3)
+pkgconfig(libavcodec)
+pkgconfig(libavformat)
+pkgconfig(libavutil)
