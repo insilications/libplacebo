@@ -5,13 +5,14 @@
 %define keepstatic 1
 Name     : libplacebo
 Version  : 3.120.1
-Release  : 301
+Release  : 302
 URL      : file:///aot/build/clearlinux/packages/libplacebo/libplacebo-v3.120.1.tar.gz
 Source0  : file:///aot/build/clearlinux/packages/libplacebo/libplacebo-v3.120.1.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1+
 Requires: libplacebo-bin = %{version}-%{release}
+Requires: libplacebo-lib = %{version}-%{release}
 BuildRequires : ImageMagick-dev
 BuildRequires : Mako
 BuildRequires : Mako-python3
@@ -494,12 +495,21 @@ bin components for the libplacebo package.
 %package dev
 Summary: dev components for the libplacebo package.
 Group: Development
+Requires: libplacebo-lib = %{version}-%{release}
 Requires: libplacebo-bin = %{version}-%{release}
 Provides: libplacebo-devel = %{version}-%{release}
 Requires: libplacebo = %{version}-%{release}
 
 %description dev
 dev components for the libplacebo package.
+
+
+%package lib
+Summary: lib components for the libplacebo package.
+Group: Libraries
+
+%description lib
+lib components for the libplacebo package.
 
 
 %package staticdev
@@ -522,7 +532,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1621180078
+export SOURCE_DATE_EPOCH=1621180464
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -574,7 +584,7 @@ export CXXFLAGS="${CXXFLAGS_GENERATE}"
 export FFLAGS="${FFLAGS_GENERATE}"
 export FCFLAGS="${FCFLAGS_GENERATE}"
 export LDFLAGS="${LDFLAGS_GENERATE}"
-meson --libdir=lib64 --prefix=/usr --buildtype=release -Ddefault_library=both -Ddefault_library=static \
+meson --libdir=lib64 --prefix=/usr --buildtype=release -Ddefault_library=both -Ddefault_library=both \
 -Dvulkan=enabled \
 -Dopengl=enabled \
 -Dglslang=disabled \
@@ -628,7 +638,7 @@ export CXXFLAGS="${CXXFLAGS_USE}"
 export FFLAGS="${FFLAGS_USE}"
 export FCFLAGS="${FCFLAGS_USE}"
 export LDFLAGS="${LDFLAGS_USE}"
-meson --libdir=lib64 --prefix=/usr --buildtype=release -Ddefault_library=both -Ddefault_library=static \
+meson --libdir=lib64 --prefix=/usr --buildtype=release -Ddefault_library=both -Ddefault_library=both \
 -Dvulkan=enabled \
 -Dopengl=enabled \
 -Dglslang=disabled \
@@ -686,7 +696,12 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/include/libplacebo/utils/libav_internal.h
 /usr/include/libplacebo/utils/upload.h
 /usr/include/libplacebo/vulkan.h
+/usr/lib64/libplacebo.so
 /usr/lib64/pkgconfig/libplacebo.pc
+
+%files lib
+%defattr(-,root,root,-)
+/usr/lib64/libplacebo.so.142
 
 %files staticdev
 %defattr(-,root,root,-)

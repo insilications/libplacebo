@@ -1,4 +1,4 @@
--Ddefault_library=static
+-Ddefault_library=both
 -Dvulkan=enabled
 -Dopengl=enabled
 -Dglslang=disabled
