@@ -1,3 +1,4 @@
 # backport-vulkan.patch
 #0001-Fix-revision.h-requirement.patch
-0002-Build-for-shaderc_combined.patch
+0001-Build-for-shaderc_combined.patch
+#0002-Fix-EPOXY_HAS_EGL-detection.patch

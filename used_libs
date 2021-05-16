@@ -1,0 +1,11 @@
+ld-linux-x86-64.so.2
+libSDL2-2.0.so.0
+libavcodec.so.58
+libavformat.so.58
+libavutil.so.56
+libc.so.6
+libdl.so.2
+libglfw.so.3
+libm.so.6
+libpthread.so.0
+libvulkan.so.1

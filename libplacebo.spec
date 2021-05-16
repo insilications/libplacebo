@@ -5,73 +5,474 @@
 %define keepstatic 1
 Name     : libplacebo
 Version  : 3.120.1
-Release  : 14
+Release  : 301
 URL      : file:///aot/build/clearlinux/packages/libplacebo/libplacebo-v3.120.1.tar.gz
 Source0  : file:///aot/build/clearlinux/packages/libplacebo/libplacebo-v3.120.1.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1+
+Requires: libplacebo-bin = %{version}-%{release}
+BuildRequires : ImageMagick-dev
 BuildRequires : Mako
 BuildRequires : Mako-python3
 BuildRequires : SDL2-dev
 BuildRequires : SDL2-staticdev
 BuildRequires : SDL2_image-dev
+BuildRequires : Sphinx
 BuildRequires : Vulkan-Headers-dev
 BuildRequires : Vulkan-Loader-dev
 BuildRequires : Z3-dev
 BuildRequires : Z3-staticdev
+BuildRequires : acl
+BuildRequires : acl-dev
+BuildRequires : acl-staticdev
+BuildRequires : alsa-firmware
+BuildRequires : alsa-lib-dev
+BuildRequires : alsa-lib-lib
+BuildRequires : alsa-plugins
+BuildRequires : alsa-plugins-lib
+BuildRequires : alsa-tools
+BuildRequires : alsa-ucm-conf
+BuildRequires : alsa-utils
 BuildRequires : asciidoctor
+BuildRequires : binutils
 BuildRequires : binutils-dev
+BuildRequires : binutils-staticdev
+BuildRequires : brotli
+BuildRequires : brotli-dev
+BuildRequires : brotli-staticdev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-meson
+BuildRequires : buildreq-qmake
+BuildRequires : bzip2
+BuildRequires : bzip2-dev
+BuildRequires : bzip2-staticdev
+BuildRequires : ca-certs
+BuildRequires : ca-certs-static
+BuildRequires : cairo
+BuildRequires : cairo-dev
+BuildRequires : cairo-lib
+BuildRequires : ccache
+BuildRequires : clazy
+BuildRequires : cmake
+BuildRequires : cppcheck
+BuildRequires : cuda
+BuildRequires : cuda-dev
+BuildRequires : cuda-staticdev
+BuildRequires : curl-dev
+BuildRequires : dav1d
+BuildRequires : dav1d-dev
+BuildRequires : dav1d-staticdev
+BuildRequires : dbus
+BuildRequires : dbus-broker
+BuildRequires : dbus-dev
+BuildRequires : dbus-glib
+BuildRequires : dbus-glib-dev
+BuildRequires : dbus-python
 BuildRequires : doxygen
+BuildRequires : e2fsprogs-dev
 BuildRequires : elfutils-dev
+BuildRequires : evtest
+BuildRequires : expat-dev
+BuildRequires : expat-dev32
+BuildRequires : expat-staticdev
 BuildRequires : findutils
+BuildRequires : fontconfig-data
+BuildRequires : fontconfig-dev
+BuildRequires : fontconfig-lib
+BuildRequires : freetype-dev
+BuildRequires : freetype-lib
+BuildRequires : fribidi-dev
 BuildRequires : gcc
 BuildRequires : gcc-dev
+BuildRequires : gcc-dev32
+BuildRequires : gcc-libgcc32
 BuildRequires : gcc-libs-math
 BuildRequires : gcc-libstdc++32
 BuildRequires : gcc-libubsan
 BuildRequires : gcc-locale
+BuildRequires : gdb
+BuildRequires : gdb-dev
+BuildRequires : gettext
+BuildRequires : glib
+BuildRequires : glib-bin
+BuildRequires : glib-data
+BuildRequires : glib-dev
+BuildRequires : glib-dev32
+BuildRequires : glib-lib
+BuildRequires : glibc
 BuildRequires : glibc-dev
+BuildRequires : glibc-dev32
+BuildRequires : glibc-lib-avx2
+BuildRequires : glibc-libc32
 BuildRequires : glibc-staticdev
+BuildRequires : glu
+BuildRequires : glu-dev
+BuildRequires : gmp
+BuildRequires : gmp-dev
+BuildRequires : gmp-staticdev
+BuildRequires : gnutls
+BuildRequires : gnutls-dev
+BuildRequires : googletest
+BuildRequires : googletest-dev
+BuildRequires : graphite
+BuildRequires : graphite-dev
+BuildRequires : gsm-dev
+BuildRequires : gtk+-data
+BuildRequires : gtk+-lib
+BuildRequires : gtk3-lib
+BuildRequires : harfbuzz-dev
+BuildRequires : harfbuzz-lib
+BuildRequires : icu4c-lib
+BuildRequires : jack2
+BuildRequires : jack2-dev
+BuildRequires : jsoncpp
+BuildRequires : jsoncpp-dev
+BuildRequires : jsoncpp-lib
+BuildRequires : jsoncpp-staticdev
+BuildRequires : keyutils
+BuildRequires : keyutils-dev
+BuildRequires : krb5
+BuildRequires : krb5-dev
 BuildRequires : lcms2-dev
 BuildRequires : lcms2-staticdev
+BuildRequires : libICE-dev
+BuildRequires : libSM-dev
+BuildRequires : libX11-data
+BuildRequires : libX11-dev
+BuildRequires : libX11-lib
+BuildRequires : libXScrnSaver
+BuildRequires : libXScrnSaver-dev
+BuildRequires : libXScrnSaver-lib
+BuildRequires : libXau-dev
+BuildRequires : libXau-lib
+BuildRequires : libXcursor-dev
+BuildRequires : libXcursor-lib
+BuildRequires : libXdamage-dev
+BuildRequires : libXdamage-lib
+BuildRequires : libXdmcp-dev
+BuildRequires : libXdmcp-lib
+BuildRequires : libXext-dev
+BuildRequires : libXext-lib
+BuildRequires : libXfont2-dev
+BuildRequires : libXft-dev
+BuildRequires : libXft-lib
+BuildRequires : libXi-dev
+BuildRequires : libXi-lib
+BuildRequires : libXrender-dev
+BuildRequires : libXrender-lib
+BuildRequires : libXtst-dev
+BuildRequires : libXtst-lib
+BuildRequires : libXxf86vm-dev
+BuildRequires : libXxf86vm-dev32
+BuildRequires : libXxf86vm-lib
+BuildRequires : libarchive
+BuildRequires : libarchive-dev
+BuildRequires : libarchive-staticdev
+BuildRequires : libatomic_ops-dev
+BuildRequires : libatomic_ops-staticdev
+BuildRequires : libcap
+BuildRequires : libcap-dev
+BuildRequires : libcap-ng-dev
+BuildRequires : libconfig-dev
+BuildRequires : libdrm
+BuildRequires : libdrm-dev
+BuildRequires : libdrm-lib
 BuildRequires : libedit
 BuildRequires : libedit-dev
+BuildRequires : libepoxy
 BuildRequires : libepoxy-dev
 BuildRequires : libepoxy-staticdev
+BuildRequires : libffi
 BuildRequires : libffi-dev
 BuildRequires : libffi-staticdev
 BuildRequires : libgcc1
+BuildRequires : libgcrypt
+BuildRequires : libgcrypt-dev
+BuildRequires : libgpg-error
+BuildRequires : libgpg-error-dev
+BuildRequires : libidn2
+BuildRequires : libidn2-dev
+BuildRequires : libidn2-staticdev
+BuildRequires : libinput-data
+BuildRequires : libinput-dev
+BuildRequires : libinput-lib
+BuildRequires : libinput-libexec
+BuildRequires : libjpeg-turbo-dev
+BuildRequires : libogg
+BuildRequires : libogg-dev
+BuildRequires : libpciaccess
+BuildRequires : libpciaccess-dev
+BuildRequires : libplacebo
+BuildRequires : libplacebo-dev
+BuildRequires : libpng-dev
+BuildRequires : libpng-lib
+BuildRequires : libsamplerate-dev
+BuildRequires : libsamplerate-dev32
+BuildRequires : libsamplerate-staticdev
+BuildRequires : libsamplerate-staticdev32
 BuildRequires : libstdc++
+BuildRequires : libstdc++-dev
+BuildRequires : libtasn1-dev
+BuildRequires : libunistring-dev
+BuildRequires : libunistring-staticdev
+BuildRequires : libunwind
+BuildRequires : libunwind-dev
+BuildRequires : libunwind-dev32
+BuildRequires : libusb
+BuildRequires : libusb-dev
+BuildRequires : libusb-dev32
+BuildRequires : libva
+BuildRequires : libva-dev
+BuildRequires : libva-lib
+BuildRequires : libvdpau
+BuildRequires : libvdpau-dev
+BuildRequires : libvorbis
+BuildRequires : libvorbis-dev
+BuildRequires : libwebp-dev
+BuildRequires : libxcb-dev
+BuildRequires : libxcb-lib
+BuildRequires : libxkbcommon
+BuildRequires : libxkbcommon-dev
 BuildRequires : libxml2-dev
 BuildRequires : libxml2-staticdev
+BuildRequires : libxslt-bin
+BuildRequires : libxvid-staticdev
+BuildRequires : libzimg-dev
+BuildRequires : libzimg-staticdev
+BuildRequires : lz4
+BuildRequires : lz4-dev
+BuildRequires : lz4-staticdev
+BuildRequires : lzo
+BuildRequires : lzo-dev
+BuildRequires : lzo-staticdev
+BuildRequires : md4c
+BuildRequires : md4c-dev
+BuildRequires : md4c-staticdev
+BuildRequires : mediasdk-dev
+BuildRequires : mesa
+BuildRequires : mesa-demos
 BuildRequires : mesa-dev
+BuildRequires : mesa-lib
+BuildRequires : mm-common-dev
+BuildRequires : nasm
+BuildRequires : nasm-bin
 BuildRequires : ncurses-dev
+BuildRequires : nettle
+BuildRequires : nettle-dev
+BuildRequires : ninja
+BuildRequires : not-ffmpeg
+BuildRequires : not-ffmpeg-dev
+BuildRequires : numlockx
+BuildRequires : nvidia
+BuildRequires : nvidia-dev
+BuildRequires : nvidia-lib
+BuildRequires : opencl-headers
+BuildRequires : opencl-headers-dev
+BuildRequires : openjpeg-dev
+BuildRequires : openssl
+BuildRequires : openssl-dev
+BuildRequires : openssl-lib
+BuildRequires : openssl-staticdev
+BuildRequires : orc-dev
+BuildRequires : orc-staticdev
+BuildRequires : p11-kit
+BuildRequires : p11-kit-dev
+BuildRequires : pacrunner
+BuildRequires : pacrunner-dev
+BuildRequires : pango-lib
+BuildRequires : pcre-dev
+BuildRequires : pcre-staticdev
+BuildRequires : perl
+BuildRequires : perl(XML::Parser)
+BuildRequires : perl-Config-General
+BuildRequires : perl-Config-Tiny
+BuildRequires : perl-Crypt-SSLeay
+BuildRequires : perl-DBI
+BuildRequires : perl-DateTime-TimeZone
+BuildRequires : perl-Encode-Locale
+BuildRequires : perl-Error
+BuildRequires : perl-File-Listing
+BuildRequires : perl-HTML-Parser
+BuildRequires : perl-HTML-Tagset
+BuildRequires : perl-HTTP-Cookies
+BuildRequires : perl-HTTP-Date
+BuildRequires : perl-HTTP-Message
+BuildRequires : perl-HTTP-Negotiate
+BuildRequires : perl-IO-HTML
+BuildRequires : perl-LWP-MediaTypes
+BuildRequires : perl-LWP-Protocol-https
+BuildRequires : perl-Params-Validate
+BuildRequires : perl-Test-Simple
+BuildRequires : perl-Try-Tiny
+BuildRequires : perl-URI
+BuildRequires : perl-XML-NamespaceSupport
+BuildRequires : perl-XML-Parser
+BuildRequires : perl-libwww-perl
+BuildRequires : perl-man
+BuildRequires : pixman
+BuildRequires : pixman-dev
+BuildRequires : pixman-lib
+BuildRequires : pixman-staticdev
+BuildRequires : pkg-config
+BuildRequires : pkg-config-dev
+BuildRequires : pkgconfig(alsa)
+BuildRequires : pkgconfig(alsa-topology)
+BuildRequires : pkgconfig(dav1d)
+BuildRequires : pkgconfig(dbus-1)
+BuildRequires : pkgconfig(dri)
+BuildRequires : pkgconfig(egl)
 BuildRequires : pkgconfig(epoxy)
+BuildRequires : pkgconfig(expat)
+BuildRequires : pkgconfig(gbm)
+BuildRequires : pkgconfig(gdm)
+BuildRequires : pkgconfig(gl)
+BuildRequires : pkgconfig(glesv1_cm)
+BuildRequires : pkgconfig(glesv2)
 BuildRequires : pkgconfig(glfw3)
+BuildRequires : pkgconfig(glib-2.0)
+BuildRequires : pkgconfig(glu)
+BuildRequires : pkgconfig(gmock)
+BuildRequires : pkgconfig(gmock_main)
+BuildRequires : pkgconfig(gtest)
+BuildRequires : pkgconfig(gtest_main)
+BuildRequires : pkgconfig(ibus-1.0)
+BuildRequires : pkgconfig(ice)
 BuildRequires : pkgconfig(lcms2)
+BuildRequires : pkgconfig(libdrm)
+BuildRequires : pkgconfig(libpulse-simple)
+BuildRequires : pkgconfig(libsystemd)
+BuildRequires : pkgconfig(libudev)
+BuildRequires : pkgconfig(libunwind)
+BuildRequires : pkgconfig(libunwind-coredump)
+BuildRequires : pkgconfig(libunwind-generic)
+BuildRequires : pkgconfig(libunwind-ptrace)
+BuildRequires : pkgconfig(libunwind-setjmp)
+BuildRequires : pkgconfig(libusb-1.0)
+BuildRequires : pkgconfig(osmesa)
+BuildRequires : pkgconfig(samplerate)
 BuildRequires : pkgconfig(shaderc)
 BuildRequires : pkgconfig(shaderc_combined)
 BuildRequires : pkgconfig(shaderc_static)
+BuildRequires : pkgconfig(sm)
+BuildRequires : pkgconfig(systemd)
+BuildRequires : pkgconfig(valgrind)
 BuildRequires : pkgconfig(vulkan)
+BuildRequires : pkgconfig(wayland-client)
+BuildRequires : pkgconfig(wayland-cursor)
+BuildRequires : pkgconfig(wayland-egl)
+BuildRequires : pkgconfig(wayland-protocols)
+BuildRequires : pkgconfig(wayland-scanner)
+BuildRequires : pkgconfig(x11)
+BuildRequires : pkgconfig(xatracker)
+BuildRequires : pkgconfig(xcursor)
+BuildRequires : pkgconfig(xext)
+BuildRequires : pkgconfig(xextproto)
+BuildRequires : pkgconfig(xi)
+BuildRequires : pkgconfig(xinerama)
+BuildRequires : pkgconfig(xkbcommon)
+BuildRequires : pkgconfig(xmu)
+BuildRequires : pkgconfig(xorg-macros)
+BuildRequires : pkgconfig(xpm)
+BuildRequires : pkgconfig(xproto)
+BuildRequires : pkgconfig(xrandr)
+BuildRequires : pkgconfig(xscrnsaver)
+BuildRequires : pkgconfig(xt)
+BuildRequires : pkgconfig(zlib)
+BuildRequires : pulseaudio
+BuildRequires : pulseaudio-dev
 BuildRequires : python3
+BuildRequires : python3-core
 BuildRequires : python3-dev
 BuildRequires : python3-staticdev
+BuildRequires : setxkbmap
 BuildRequires : shaderc
 BuildRequires : shaderc-dev
 BuildRequires : shaderc-staticdev
+BuildRequires : shared-mime-info
+BuildRequires : snappy-dev
+BuildRequires : solid-dev
+BuildRequires : sonnet-dev
+BuildRequires : systemd
+BuildRequires : systemd-dev
+BuildRequires : texinfo
+BuildRequires : util-linux
+BuildRequires : util-linux-dev
+BuildRequires : util-linux-staticdev
+BuildRequires : valgrind
+BuildRequires : valgrind-dev
+BuildRequires : wayland
+BuildRequires : wayland-dev
+BuildRequires : weston
+BuildRequires : wmctrl
+BuildRequires : xauth
+BuildRequires : xcb-proto
+BuildRequires : xcb-proto-dev
+BuildRequires : xcb-util-cursor-dev
+BuildRequires : xcb-util-dev
+BuildRequires : xcb-util-image-dev
+BuildRequires : xcb-util-keysyms-dev
+BuildRequires : xcb-util-renderutil-dev
+BuildRequires : xcb-util-wm-dev
+BuildRequires : xcb-util-xrm-dev
+BuildRequires : xclip
+BuildRequires : xdg-dbus-proxy
+BuildRequires : xdg-desktop-portal
+BuildRequires : xdg-desktop-portal-dev
+BuildRequires : xdg-desktop-portal-gtk
+BuildRequires : xdg-desktop-portal-kde
+BuildRequires : xdg-user-dirs
+BuildRequires : xdg-user-dirs-gtk
+BuildRequires : xdg-utils
+BuildRequires : xdotool
+BuildRequires : xdpyinfo
+BuildRequires : xf86-input-libinput
+BuildRequires : xf86-video-amdgpu
+BuildRequires : xf86-video-ati
+BuildRequires : xf86-video-fbdev
+BuildRequires : xf86-video-nouveau
+BuildRequires : xf86-video-qxl
+BuildRequires : xf86-video-vboxvideo
+BuildRequires : xf86-video-vesa
+BuildRequires : xf86-video-vmware
+BuildRequires : xfontsel
+BuildRequires : xhost
+BuildRequires : xinit
+BuildRequires : xinput
+BuildRequires : xkbcomp
+BuildRequires : xkeyboard-config
+BuildRequires : xkill
+BuildRequires : xmodmap
+BuildRequires : xorg-server
+BuildRequires : xorg-server-dev
+BuildRequires : xorgproto
+BuildRequires : xorgproto-dev
+BuildRequires : xprop
+BuildRequires : xrandr
+BuildRequires : xrdb
+BuildRequires : xrdp
+BuildRequires : xrestop
+BuildRequires : xscreensaver
+BuildRequires : xsel
+BuildRequires : xset
+BuildRequires : xsetroot
+BuildRequires : xvfb-run
+BuildRequires : xwd
+BuildRequires : xwininfo
+BuildRequires : xz
 BuildRequires : xz-dev
 BuildRequires : xz-staticdev
 BuildRequires : yaml-cpp
 BuildRequires : yaml-cpp-dev
+BuildRequires : zlib
 BuildRequires : zlib-dev
 BuildRequires : zlib-staticdev
+BuildRequires : zstd-dev
+BuildRequires : zstd-staticdev
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
-Patch1: 0002-Build-for-shaderc_combined.patch
+Patch1: 0001-Build-for-shaderc_combined.patch
 
 %description
 # libplacebo
@@ -81,6 +482,34 @@ Patch1: 0002-Build-for-shaderc_combined.patch
 [![Sponsors on Open Collective](https://opencollective.com/libplacebo/sponsors/badge.svg)](#sponsors)
 [![PayPal](https://img.shields.io/badge/donate-PayPal-blue.svg?logo=paypal)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SFJUTMPSZEAHC)
 [![Patreon](https://img.shields.io/badge/pledge-Patreon-red.svg?logo=patreon)](https://www.patreon.com/haasn)
+
+%package bin
+Summary: bin components for the libplacebo package.
+Group: Binaries
+
+%description bin
+bin components for the libplacebo package.
+
+
+%package dev
+Summary: dev components for the libplacebo package.
+Group: Development
+Requires: libplacebo-bin = %{version}-%{release}
+Provides: libplacebo-devel = %{version}-%{release}
+Requires: libplacebo = %{version}-%{release}
+
+%description dev
+dev components for the libplacebo package.
+
+
+%package staticdev
+Summary: staticdev components for the libplacebo package.
+Group: Default
+Requires: libplacebo-dev = %{version}-%{release}
+
+%description staticdev
+staticdev components for the libplacebo package.
+
 
 %prep
 %setup -q -n libplacebo
@@ -93,7 +522,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1621175739
+export SOURCE_DATE_EPOCH=1621180078
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -105,7 +534,7 @@ export CFLAGS_GENERATE="-g -O3 --param=lto-max-streaming-parallelism=16 -march=n
 export FCFLAGS_GENERATE="-g -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -falign-functions=32 -flimit-function-alignment -fno-semantic-interposition -fno-stack-protector -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -mtls-dialect=gnu2 -fno-math-errno -fno-trapping-math -pipe -ffat-lto-objects -flto=16 -fPIC -Wl,-z,max-page-size=0x1000 -fomit-frame-pointer -pthread -static-libstdc++ -static-libgcc -Wl,--build-id=sha1 -fdevirtualize-at-ltrans -Wl,-z,now -Wl,-z,relro -Wl,-sort-common -fasynchronous-unwind-tables $PGO_GEN"
 export FFLAGS_GENERATE="-g -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -falign-functions=32 -flimit-function-alignment -fno-semantic-interposition -fno-stack-protector -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -mtls-dialect=gnu2 -fno-math-errno -fno-trapping-math -pipe -ffat-lto-objects -flto=16 -fPIC -Wl,-z,max-page-size=0x1000 -fomit-frame-pointer -pthread -static-libstdc++ -static-libgcc -Wl,--build-id=sha1 -fdevirtualize-at-ltrans -Wl,-z,now -Wl,-z,relro -Wl,-sort-common -fasynchronous-unwind-tables $PGO_GEN"
 export CXXFLAGS_GENERATE="-g -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -falign-functions=32 -flimit-function-alignment -fno-semantic-interposition -fno-stack-protector -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -mtls-dialect=gnu2 -fno-math-errno -fno-trapping-math -fvisibility-inlines-hidden -pipe -ffat-lto-objects -flto=16 -fPIC -Wl,-z,max-page-size=0x1000 -fomit-frame-pointer -pthread -static-libstdc++ -static-libgcc -Wl,--build-id=sha1 -fdevirtualize-at-ltrans -Wl,-z,now -Wl,-z,relro -Wl,-sort-common -fasynchronous-unwind-tables $PGO_GEN"
-export LDFLAGS_GENERATE="-g -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -falign-functions=32 -flimit-function-alignment -fno-semantic-interposition -fno-stack-protector -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -mtls-dialect=gnu2 -fno-math-errno -fno-trapping-math -pipe -ffat-lto-objects -flto=16 -fPIC -Wl,-z,max-page-size=0x1000 -fomit-frame-pointer -pthread -static-libstdc++ -static-libgcc -lpthread -Wl,--build-id=sha1 -fdevirtualize-at-ltrans -Wl,-z,now -Wl,-z,relro -Wl,-sort-common -fasynchronous-unwind-tables $PGO_GEN"
+export LDFLAGS_GENERATE="-g -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -falign-functions=32 -flimit-function-alignment -fno-semantic-interposition -fno-stack-protector -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -mtls-dialect=gnu2 -fno-math-errno -fno-trapping-math -pipe -ffat-lto-objects -flto=16 -fPIC -Wl,-z,max-page-size=0x1000 -fomit-frame-pointer -pthread -static-libstdc++ -static-libgcc -lpthread /usr/lib64/libgcc.a /usr/lib64/libgcc_eh.a /usr/lib64/libstdc++.a /usr/lib64/libdl.so /usr/lib64/librt.so /usr/lib64/haswell/libm.so.6 /usr/lib64/haswell/libmvec.so.1 /usr/lib64/libpthread.so -Wl,--build-id=sha1 -fdevirtualize-at-ltrans -Wl,-z,now -Wl,-z,relro -Wl,-sort-common -fasynchronous-unwind-tables $PGO_GEN"
 ## pgo use
 ## -ffat-lto-objects -fno-PIE -fno-PIE -m64 -no-pie -fPIC -Wl,-z,max-page-size=0x1000 -fvisibility=hidden -flto-partition=none
 ## gcc: -feliminate-unused-debug-types -fipa-pta -flto=16 -Wno-error -Wp,-D_REENTRANT -fno-common
@@ -114,7 +543,7 @@ export CFLAGS_USE="-g -O3 --param=lto-max-streaming-parallelism=16 -march=native
 export FCFLAGS_USE="-g -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now -Wl,-z,relro -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-vectorize -funroll-loops -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=16 -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -Wl,-z,max-page-size=0x1000 -fomit-frame-pointer -pthread -static-libstdc++ -static-libgcc $PGO_USE"
 export FFLAGS_USE="-g -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now -Wl,-z,relro -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-vectorize -funroll-loops -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=16 -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -Wl,-z,max-page-size=0x1000 -fomit-frame-pointer -pthread -static-libstdc++ -static-libgcc $PGO_USE"
 export CXXFLAGS_USE="-g -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now -Wl,-z,relro -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-vectorize -funroll-loops -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=16 -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -fvisibility-inlines-hidden -pipe -ffat-lto-objects -fPIC -Wl,-z,max-page-size=0x1000 -fomit-frame-pointer -pthread -static-libstdc++ -static-libgcc $PGO_USE"
-export LDFLAGS_USE="-g -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now -Wl,-z,relro -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-vectorize -funroll-loops -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=16 -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -Wl,-z,max-page-size=0x1000 -fomit-frame-pointer -pthread -static-libstdc++ -static-libgcc -lpthread $PGO_USE"
+export LDFLAGS_USE="-g -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now -Wl,-z,relro -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-vectorize -funroll-loops -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=16 -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -Wl,-z,max-page-size=0x1000 -fomit-frame-pointer -pthread -static-libstdc++ -static-libgcc -lpthread /usr/lib64/libgcc.a /usr/lib64/libgcc_eh.a /usr/lib64/libstdc++.a /usr/lib64/libdl.so /usr/lib64/librt.so /usr/lib64/haswell/libm.so.6 /usr/lib64/haswell/libmvec.so.1 /usr/lib64/libpthread.so $PGO_USE"
 #
 export AR=/usr/bin/gcc-ar
 export RANLIB=/usr/bin/gcc-ranlib
@@ -145,53 +574,77 @@ export CXXFLAGS="${CXXFLAGS_GENERATE}"
 export FFLAGS="${FFLAGS_GENERATE}"
 export FCFLAGS="${FCFLAGS_GENERATE}"
 export LDFLAGS="${LDFLAGS_GENERATE}"
-meson --libdir=lib64 --prefix=/usr --buildtype=release -Ddefault_library=both -Dvulkan=enabled \
+meson --libdir=lib64 --prefix=/usr --buildtype=release -Ddefault_library=both -Ddefault_library=static \
+-Dvulkan=enabled \
 -Dopengl=enabled \
 -Dglslang=disabled \
 -Dshaderc=enabled \
--Ddefault_library=static \
 -Db_lto=true \
 -Dlcms=enabled \
 -Dtests=true \
-option('vulkan', type: 'feature', value: 'auto', \
-description: 'Vulkan-based renderer') \
-option('vulkan-link', type: 'boolean', value: true, \
-description: 'Link directly againt vkGetInstanceProcAddr from libvulkan.so') \
-option('vulkan-registry', type: 'string', value: '', \
-description: 'Path to vulkan XML registry (for code generation)') \
-option('opengl', type: 'feature', value: 'auto', \
-description: 'OpenGL-based renderer') \
-option('glslang', type: 'feature', value: 'auto', \
-description: 'glslang SPIR-V compiler') \
-option('shaderc', type: 'feature', value: 'auto', \
-description: 'libshaderc SPIR-V compiler') \
-option('lcms', type: 'feature', value: 'auto', \
-description: 'LittleCMS 2 support') \
-option('demos', type: 'boolean', value: true, \
-description: 'Enable building (and installing) the demo programs') \
-option('tests', type: 'boolean', value: false, \
-description: 'Enable building the test cases') \
-option('bench', type: 'boolean', value: false, \
-description: 'Enable building benchmarks (`meson test benchmark`)') \
-option('fuzz', type: 'boolean', value: false, \
-description: 'Enable building fuzzer binaries (`CC=afl-cc`)')  builddir
+-Dbench=true  builddir
+## make_prepend content
+sd "/usr/lib64/libdav1d.so" "/usr/lib64/libdav1d.a" $(fd -uu --glob *.ninja)
+sd "/usr/lib64/liblcms2.so" "/usr/lib64/liblcms2.a" $(fd -uu --glob *.ninja)
+sd "/usr/lib64/liblcms2_fast_float.so" "/usr/lib64/liblcms2_fast_float.a" $(fd -uu --glob *.ninja)
+sd "/usr/lib64/libepoxy.so" "/usr/lib64/libepoxy.a" $(fd -uu --glob *.ninja)
+#sd "/usr/lib64/libavutil.so" "/usr/lib64/libavutil.so /usr/lib64/libgcc.a /usr/lib64/libgcc_eh.a /usr/lib64/libstdc++.a /usr/lib64/libdl.so /usr/lib64/librt.so /usr/lib64/haswell/libm.so.6 /usr/lib64/haswell/libmvec.so.1 /usr/lib64/libpthread.so" $(fd -uu --glob *.ninja)
+#/usr/lib64/libSDL2.so
+## make_prepend end
 ninja --verbose %{?_smp_mflags} -v -C builddir
 
+export DISPLAY=:0
+#export __GL_ALLOW_UNOFFICIAL_PROTOCOL=1
+export __GL_SYNC_TO_VBLANK=0
+export LANG=en_US.UTF-8
+export XDG_CONFIG_DIRS=/usr/share/xdg:/etc/xdg
+export XDG_SEAT=seat0
+export XDG_SESSION_TYPE=tty
+export XDG_CURRENT_DESKTOP=KDE
+export XDG_SESSION_CLASS=user
+export XDG_VTNR=1
+export XDG_SESSION_ID=1
+export XDG_RUNTIME_DIR=/run/user/1000
+export XDG_DATA_DIRS=/usr/local/share:/usr/share
+export KDE_SESSION_VERSION=5
+export KDE_SESSION_UID=1000
+export KDE_FULL_SESSION=true
+export KDE_APPLICATIONS_AS_SCOPE=1
+export VDPAU_DRIVER=nvidia
+export LIBVA_DRIVER_NAME=vdpau
+export LIBVA_DRIVERS_PATH=/usr/lib64/dri
+export GTK_RC_FILES=/etc/gtk/gtkrc
+export FONTCONFIG_PATH=/usr/share/defaults/fonts
+export LD_LIBRARY_PATH="/usr/cuda/lib64:/usr/cuda/targets/x86_64-linux/lib:/usr/nvidia/lib64:/usr/nvidia/lib:/usr/nvidia/lib/vdpau:/usr/nvidia/lib64/xorg/modules/drivers:/usr/nvidia/lib64/xorg/modules/extensions:/usr/lib64/dri:/usr/lib64/haswell:/usr/lib64:/usr/lib:/usr/share"
+export LIBRARY_PATH="/usr/cuda/lib64:/usr/cuda/targets/x86_64-linux/lib:/usr/nvidia/lib64:/usr/nvidia/lib:/usr/nvidia/lib/vdpau:/usr/nvidia/lib64/xorg/modules/drivers:/usr/nvidia/lib64/xorg/modules/extensions:/usr/lib64/dri:/usr/lib64/haswell:/usr/lib64:/usr/lib:/usr/share"
+export PKG_CONFIG_PATH="/usr/lib64/pkgconfig:../"
+export PATH="/usr/nvidia/bin:/usr/bin/haswell:/usr/bin:/usr/sbin"
+export $(dbus-launch)
 meson test --verbose --num-processes 16 -C builddir || :
+meson test --verbose --num-processes 16 -C builddir benchmark || :
 find builddir/ -type f,l -not -name '*.gcno' -not -name 'statuspgo*' -delete -print
 export CFLAGS="${CFLAGS_USE}"
 export CXXFLAGS="${CXXFLAGS_USE}"
 export FFLAGS="${FFLAGS_USE}"
 export FCFLAGS="${FCFLAGS_USE}"
 export LDFLAGS="${LDFLAGS_USE}"
-meson --libdir=lib64 --prefix=/usr --buildtype=release -Ddefault_library=both -Dvulkan=enabled \
+meson --libdir=lib64 --prefix=/usr --buildtype=release -Ddefault_library=both -Ddefault_library=static \
+-Dvulkan=enabled \
 -Dopengl=enabled \
 -Dglslang=disabled \
 -Dshaderc=enabled \
--Ddefault_library=static \
 -Db_lto=true \
 -Dlcms=enabled \
--Dtests=false  builddir
+-Dtests=false \
+-Dbench=false  builddir
+## make_prepend content
+sd "/usr/lib64/libdav1d.so" "/usr/lib64/libdav1d.a" $(fd -uu --glob *.ninja)
+sd "/usr/lib64/liblcms2.so" "/usr/lib64/liblcms2.a" $(fd -uu --glob *.ninja)
+sd "/usr/lib64/liblcms2_fast_float.so" "/usr/lib64/liblcms2_fast_float.a" $(fd -uu --glob *.ninja)
+sd "/usr/lib64/libepoxy.so" "/usr/lib64/libepoxy.a" $(fd -uu --glob *.ninja)
+#sd "/usr/lib64/libavutil.so" "/usr/lib64/libavutil.so /usr/lib64/libgcc.a /usr/lib64/libgcc_eh.a /usr/lib64/libstdc++.a /usr/lib64/libdl.so /usr/lib64/librt.so /usr/lib64/haswell/libm.so.6 /usr/lib64/haswell/libmvec.so.1 /usr/lib64/libpthread.so" $(fd -uu --glob *.ninja)
+#/usr/lib64/libSDL2.so
+## make_prepend end
 ninja --verbose %{?_smp_mflags} -v -C builddir
 
 %install
@@ -199,3 +652,42 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files
 %defattr(-,root,root,-)
+
+%files bin
+%defattr(-,root,root,-)
+/usr/bin/plplay
+
+%files dev
+%defattr(-,root,root,-)
+/usr/include/libplacebo/colorspace.h
+/usr/include/libplacebo/common.h
+/usr/include/libplacebo/config.h
+/usr/include/libplacebo/context.h
+/usr/include/libplacebo/dispatch.h
+/usr/include/libplacebo/dither.h
+/usr/include/libplacebo/dummy.h
+/usr/include/libplacebo/filters.h
+/usr/include/libplacebo/gpu.h
+/usr/include/libplacebo/log.h
+/usr/include/libplacebo/opengl.h
+/usr/include/libplacebo/renderer.h
+/usr/include/libplacebo/shaders.h
+/usr/include/libplacebo/shaders/av1.h
+/usr/include/libplacebo/shaders/colorspace.h
+/usr/include/libplacebo/shaders/custom.h
+/usr/include/libplacebo/shaders/icc.h
+/usr/include/libplacebo/shaders/lut.h
+/usr/include/libplacebo/shaders/sampling.h
+/usr/include/libplacebo/swapchain.h
+/usr/include/libplacebo/utils/dav1d.h
+/usr/include/libplacebo/utils/dav1d_internal.h
+/usr/include/libplacebo/utils/frame_queue.h
+/usr/include/libplacebo/utils/libav.h
+/usr/include/libplacebo/utils/libav_internal.h
+/usr/include/libplacebo/utils/upload.h
+/usr/include/libplacebo/vulkan.h
+/usr/lib64/pkgconfig/libplacebo.pc
+
+%files staticdev
+%defattr(-,root,root,-)
+/usr/lib64/libplacebo.a

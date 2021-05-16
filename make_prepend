@@ -1,0 +1,6 @@
+sd "/usr/lib64/libdav1d.so" "/usr/lib64/libdav1d.a" $(fd -uu --glob *.ninja)
+sd "/usr/lib64/liblcms2.so" "/usr/lib64/liblcms2.a" $(fd -uu --glob *.ninja)
+sd "/usr/lib64/liblcms2_fast_float.so" "/usr/lib64/liblcms2_fast_float.a" $(fd -uu --glob *.ninja)
+sd "/usr/lib64/libepoxy.so" "/usr/lib64/libepoxy.a" $(fd -uu --glob *.ninja)
+#sd "/usr/lib64/libavutil.so" "/usr/lib64/libavutil.so /usr/lib64/libgcc.a /usr/lib64/libgcc_eh.a /usr/lib64/libstdc++.a /usr/lib64/libdl.so /usr/lib64/librt.so /usr/lib64/haswell/libm.so.6 /usr/lib64/haswell/libmvec.so.1 /usr/lib64/libpthread.so" $(fd -uu --glob *.ninja)
+#/usr/lib64/libSDL2.so

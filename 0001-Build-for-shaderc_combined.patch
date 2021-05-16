@@ -1,0 +1,25 @@
+From 3545d1decc2966e0a88bd101787587f16e14e8ae Mon Sep 17 00:00:00 2001
+From: Francisco Boni <boboniboni@gmail.com>
+Date: Sun, 16 May 2021 11:49:06 -0300
+Subject: [PATCH 1/2] Build for shaderc_combined
+
+---
+ src/meson.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/meson.build b/src/meson.build
+index 1a7677c..8712e18 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -7,7 +7,7 @@ test_deps = []
+ 
+ vulkan = dependency('vulkan', version: '>=1.1', required: get_option('vulkan'))
+ opengl = dependency('epoxy', version: '>=1.4.0', required: get_option('opengl'))
+-shaderc = dependency('shaderc', version: '>=2018.0', required: get_option('shaderc'))
++shaderc = dependency('shaderc_combined', version: '>=2018.0', required: get_option('shaderc'))
+ 
+ # configuration data
+ conf_public = configuration_data()
+-- 
+2.31.1
+

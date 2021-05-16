@@ -26,3 +26,4 @@ export PKG_CONFIG_PATH="/usr/lib64/pkgconfig:../"
 export PATH="/usr/nvidia/bin:/usr/bin/haswell:/usr/bin:/usr/sbin"
 export $(dbus-launch)
 meson test --verbose --num-processes 16 -C builddir || :
+meson test --verbose --num-processes 16 -C builddir benchmark || :
