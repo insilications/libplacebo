@@ -1,4 +1,7 @@
 # This file contains pkgconfig build requirements that get picked up
 # but are undesirable. One entry per line, no whitespace.
-# shaderc_static
-# shaderc
+libavcodec
+libavformat
+libavutil
+SPIRV-Tools
+SPIRV-Tools-shared

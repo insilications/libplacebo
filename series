@@ -1,3 +1,3 @@
 # backport-vulkan.patch
-0001-Fix-revision.h-requirement.patch
+#0001-Fix-revision.h-requirement.patch
 0002-Build-for-shaderc_combined.patch

@@ -1,5 +1,6 @@
 PKG_NAME := libplacebo
-URL = https://code.videolan.org/videolan/libplacebo.git
+URL = https://github.com/haasn/libplacebo.git
 ARCHIVES = 
+ARCHIVES_GIT = 
 
 include ../common/Makefile.common

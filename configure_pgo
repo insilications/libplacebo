@@ -5,5 +5,5 @@
 -Dshaderc=enabled
 -Db_lto=true
 -Dlcms=enabled
--Dtests=true
--Dbench=true
+-Dtests=false
+-Dbench=false
