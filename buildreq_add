@@ -33,9 +33,6 @@ ccache
 clazy
 cmake
 cppcheck
-cuda
-cuda-dev
-cuda-staticdev
 curl-dev
 dbus
 dbus-broker
@@ -241,9 +238,6 @@ ninja
 not-ffmpeg
 not-ffmpeg-dev
 numlockx
-nvidia
-nvidia-dev
-nvidia-lib
 opencl-headers
 opencl-headers-dev
 openjpeg-dev
